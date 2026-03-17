@@ -1,0 +1,28 @@
+target
+Cargo.lock
+
+# test binaries
+*.elf
+
+# editors
+.*.swp
+/.idea/*
+.config.env
+
+# public parameter files
+*.zst
+
+# proof file
+nexus-proof
+
+# macos
+.DS_Store
+
+# benchmarks
+benchmarks/results/*
+
+# graphs
+benchmarks/graphs/*
+
+# proof files
+*.proof

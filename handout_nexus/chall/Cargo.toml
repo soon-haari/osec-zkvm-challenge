@@ -1,0 +1,28 @@
+[package]
+name = "chall"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+members = ["guest"]
+
+
+
+[workspace.dependencies]
+nexus-core = { git = "file:///Users/minsun/KU/osec/handout_nexus/chall/nexus-zkvm", branch = "local-edit" }
+nexus-common = { git = "file:///Users/minsun/KU/osec/handout_nexus/chall/nexus-zkvm", branch = "local-edit" }
+nexus-vm = { git = "file:///Users/minsun/KU/osec/handout_nexus/chall/nexus-zkvm", branch = "local-edit" }
+nexus-vm-prover = { git = "file:///Users/minsun/KU/osec/handout_nexus/chall/nexus-zkvm", branch = "local-edit" }
+nexus-common-testing = { git = "file:///Users/minsun/KU/osec/handout_nexus/chall/nexus-zkvm", branch = "local-edit" }
+nexus-sdk = { git = "file:///Users/minsun/KU/osec/handout_nexus/chall/nexus-zkvm", branch = "local-edit" }
+nexus-rt = { git = "file:///Users/minsun/KU/osec/handout_nexus/chall/nexus-zkvm", branch = "local-edit" }
+
+[dependencies]
+nexus-core.workspace = true
+nexus-common.workspace = true
+nexus-vm.workspace = true
+nexus-vm-prover.workspace = true
+nexus-common-testing.workspace = true
+nexus-sdk.workspace = true
+serde = "1.0.228"
+postcard = "1.1.3"

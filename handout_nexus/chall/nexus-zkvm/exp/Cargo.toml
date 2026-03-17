@@ -1,0 +1,28 @@
+[package]
+name = "chall"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+members = ["guest"]
+
+
+
+[workspace.dependencies]
+nexus-core = { path = "../core" }
+nexus-common = { path = "../common" }
+nexus-vm = { path = "../vm" }
+nexus-vm-prover = { path = "../prover" }
+nexus-common-testing = { path = "../common-testing" }
+nexus-sdk = { path = "../sdk" }
+nexus-rt = { path = "../runtime" }
+
+[dependencies]
+nexus-core.workspace = true
+nexus-common.workspace = true
+nexus-vm.workspace = true
+nexus-vm-prover.workspace = true
+nexus-common-testing.workspace = true
+nexus-sdk.workspace = true
+serde = "1.0.228"
+postcard = "1.1.3"

@@ -1,0 +1,20 @@
+[package]
+name = "nexus-vm-prover-trace"
+edition.workspace = true
+version.workspace = true
+authors.workspace = true
+homepage.workspace = true
+repository.workspace = true
+keywords.workspace = true
+categories.workspace = true
+publish.workspace = true
+
+[dependencies]
+nexus-vm-prover-air-column = { path = "../air-column" }
+nexus-vm = { path = "../../vm" }
+nexus-common = { path = "../../common" }
+
+num-traits = { workspace = true }
+stwo = { workspace = true }
+stwo-constraint-framework = { workspace = true }
+rayon = "1.10"

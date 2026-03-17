@@ -1,0 +1,56 @@
+[workspace]
+resolver = "2"
+members = [
+    "runtime",
+    "prover",
+    "vm",
+    "precompiles",
+    "common",
+    "core",
+    "sdk",
+    "examples",
+    "examples/legacy",
+    "tests/testing-framework",
+    "benchmarks",
+    "cli",
+    "prover2/trace",
+    "prover2/air-column",
+    "prover2/air-column/air-column-derive",
+    "prover2/machine"
+]
+default-members = ["runtime", "prover", "vm", "precompiles", "common", "core"]
+exclude = ["prover-benches"]
+
+[workspace.package]
+edition = "2021"
+version = "0.3.4"
+authors = ["The Nexus Team <hello@nexus.xyz>"]
+homepage = "https://nexus.xyz/"
+repository = "https://github.com/nexus-xyz/nexus-zkvm/"
+keywords = ["nexus", "zero-knowledge", "zkvm", "cryptography", "proofs"]
+categories = ["cryptography"]
+publish = false
+
+[workspace.dependencies]
+clap = { version = "4.3", features = ["derive"] }
+num-traits = "0.2"
+num-derive = "0.4.2"
+serde = { version = "1.0", features = ["derive"] }
+stwo = { path = "/Users/minsun/KU/osec/stwo-local/crates/stwo", features = ["std","prover","parallel"] }
+stwo-constraint-framework = { path = "/Users/minsun/KU/osec/stwo-local/crates/constraint-framework", features = ["std","prover","parallel"] }
+
+tiny-keccak = { version = "2.0.2", features = ["keccak"] }
+
+# This profile is used for CI tests. Optimized for faster compilation vs. absolute speed.
+[profile.ci-test]
+inherits = "release"
+debug = true
+lto = "thin"
+
+[profile.release]
+codegen-units = 1
+lto = true
+
+[profile.bench]
+inherits = "release"
+debug = true

@@ -1,0 +1,22 @@
+[package]
+name = "prover-benches"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+nexus-vm-prover = { path = "../prover" }
+nexus-vm = { path = "../vm" }
+nexus-common = { path = "../common" }
+
+stwo = { git = "https://github.com/starkware-libs/stwo", rev = "0790eba" }
+
+criterion = { version = "0.5", features = ["csv", "csv_output"] }
+crc = "3.2.1"
+
+[[bench]]
+name = "trace_gen"
+harness = false
+
+[[bench]]
+name = "stark_prove"
+harness = false

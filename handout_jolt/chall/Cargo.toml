@@ -1,0 +1,47 @@
+[package]
+name = "chall"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+members = [
+    "guest",
+]
+exclude = [
+    "_deps/jolt",
+]
+
+[dependencies]
+jolt-sdk = { path = "_deps/jolt/jolt-sdk", features=["host"] }
+jolt-core = { path = "_deps/jolt/jolt-core", features = ["host"] }
+tracing-subscriber = "0.3"
+tracing = "0.1"
+guest = { package = "guest", path = "./guest" }
+
+ark-serialize = { git = "https://github.com/a16z/arkworks-algebra", branch = "dev/twist-shout" }
+
+
+[profile.release]
+lto = "off"
+
+# This mess is just to make everything work with the old Jolt version
+
+[patch."https://github.com/a16z/arkworks-algebra"]
+ark-ff = { git = "https://www.github.com/a16z/arkworks-algebra", rev = "2b732305af764d9fd4fcbc570eedf6d289fb2897" }
+ark-ec = { git = "https://www.github.com/a16z/arkworks-algebra", rev = "2b732305af764d9fd4fcbc570eedf6d289fb2897" }
+ark-serialize = { git = "https://www.github.com/a16z/arkworks-algebra", rev = "2b732305af764d9fd4fcbc570eedf6d289fb2897" }
+ark-bn254 = { git = "https://www.github.com/a16z/arkworks-algebra", rev = "2b732305af764d9fd4fcbc570eedf6d289fb2897" }
+ark-grumpkin = { git = "https://www.github.com/a16z/arkworks-algebra", rev = "2b732305af764d9fd4fcbc570eedf6d289fb2897" }
+jolt-optimizations = { git = "https://www.github.com/a16z/arkworks-algebra", rev = "2b732305af764d9fd4fcbc570eedf6d289fb2897" }
+
+[patch."https://github.com/markosg04/dory"]
+dory = { git = "https://www.github.com/markosg04/dory", rev = "c047854b447a8bddb4a7c279849b31d364aeef98" }
+
+[patch.crates-io]
+ark-ff = { git = "https://www.github.com/a16z/arkworks-algebra", rev = "2b732305af764d9fd4fcbc570eedf6d289fb2897" }
+ark-ec = { git = "https://www.github.com/a16z/arkworks-algebra", rev = "2b732305af764d9fd4fcbc570eedf6d289fb2897" }
+ark-serialize = { git = "https://www.github.com/a16z/arkworks-algebra", rev = "2b732305af764d9fd4fcbc570eedf6d289fb2897" }
+ark-bn254 = { git = "https://www.github.com/a16z/arkworks-algebra", rev = "2b732305af764d9fd4fcbc570eedf6d289fb2897" }
+ark-grumpkin = { git = "https://www.github.com/a16z/arkworks-algebra", rev = "2b732305af764d9fd4fcbc570eedf6d289fb2897" }
+jolt-optimizations = { git = "https://www.github.com/a16z/arkworks-algebra", rev = "2b732305af764d9fd4fcbc570eedf6d289fb2897" }
+allocative = { git = "https://github.com/facebookexperimental/allocative", rev = "85b773d85d526d068ce94724ff7a7b81203fc95e" }

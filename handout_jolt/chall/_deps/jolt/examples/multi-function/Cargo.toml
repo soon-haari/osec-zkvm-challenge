@@ -1,0 +1,11 @@
+[package]
+name = "multi-function"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+jolt-sdk = { path = "../../jolt-sdk", features = ["host"] }
+tracing-subscriber = "0.3"
+tracing = "0.1"
+guest = { package = "multi-function-guest", path = "./guest" }
+
